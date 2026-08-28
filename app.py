@@ -1273,9 +1273,10 @@ def setup_scheduler():
 # ─────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────
+db.init()
+scheduler = setup_scheduler()
+
 if __name__ == '__main__':
-    db.init()
-    scheduler = setup_scheduler()
     port = int(os.environ.get('PORT', 5000))
     log.info(f"Signal Society running on http://localhost:{port}")
     app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
